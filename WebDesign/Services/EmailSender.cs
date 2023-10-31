@@ -11,7 +11,7 @@ namespace WebDesign.Services
         {
             var emailMessage = new MimeMessage();
 
-            emailMessage.From.Add(new MailboxAddress("Администрация сайта", "ienikesergey@gmail.com"));
+            emailMessage.From.Add(new MailboxAddress("Администрация сайта", "nikitarabcev69@gmail.com"));
             emailMessage.To.Add(new MailboxAddress("", email));
             emailMessage.Subject = subject;
             emailMessage.Body = new TextPart(MimeKit.Text.TextFormat.Html)
@@ -22,7 +22,7 @@ namespace WebDesign.Services
             using (var client = new SmtpClient())
             {
                 await client.ConnectAsync("smtp-relay.brevo.com", 587, false);
-                await client.AuthenticateAsync("ienikesergey@gmail.com", "xsmtpsib-da0d195112b186ac811cadcffad4c1ab27a522cba566558587eff52586206415-L5Fs3gAHhtIm1CZp");
+                await client.AuthenticateAsync("nikitarabcev69@gmail.com", "xsmtpsib-3251fe9073f9997d37f6966c4f816f5046f0c89899c2313c604700280c60b7e7-afKj2vkQy3NXU8tS");
                 await client.SendAsync(emailMessage);
 
                 await client.DisconnectAsync(true);
