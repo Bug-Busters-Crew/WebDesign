@@ -23,6 +23,18 @@ var app = new Vue({
             product.status = !product.status
 
             localStorage.setItem('products', JSON.stringify(this.products));
+        },
+        summaryBasketCost() {
+            let sum = 0;
+            this.products.forEach(product => {
+                if (product.status === true) {
+                    sum += parseInt(product.cost);
+                }
+            });
+            return sum;
+        },
+        info() {
+            var result = confirm("Оформление заказа пока недоступно");
         }
     },
     computed: {
