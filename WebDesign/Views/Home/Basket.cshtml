@@ -1,0 +1,29 @@
+﻿<div class="text-center" style="margin-left: 120px;">
+    <div id="home">
+        <div v-if="hasProductWithStatusTrue">
+            <div class="row">
+                <div class="col-md-4" v-for="product in products" v-if="product.status">
+                    <div class="card" style="width:230px; border-radius: 10%">
+                        <br />
+                        <div class="align-content-center">
+                            <img :src="product.photo" style="width: 200px; height: 200px; border-radius:10%;" />
+                        </div>
+                        {{ product.name }}
+                        <br />
+                        {{product.cost}}
+                        <br />
+                        <p style="font-size: 12px;">{{product.about}}</p>
+                        <div class="align-content-center">
+                            <a class="btn btn-danger" style="width:200px;" v-on:click="toggleInBasket(product)">Удалить из корзины<i class="bi bi-trash3-fill"></i></a>
+                        </div>
+                    </div>
+                    <br />
+                </div>
+            </div>
+        </div>
+        <div v-else class="align-content-center">
+            <h3>Вы еще не добавили ни один продукт в свою корзину</h3>
+            <a asp-controller="Home" asp-action="Index">Перейти</a>
+        </div>
+    </div>
+</div>
