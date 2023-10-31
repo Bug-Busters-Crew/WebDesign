@@ -2,7 +2,6 @@
 using MailKit.Net.Smtp;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.UI.Services;
-
 namespace WebDesign.Services
 {
     public class EmailSender : IEmailSender
@@ -18,11 +17,10 @@ namespace WebDesign.Services
             {
                 Text = htmlMessage
             };
-
             using (var client = new SmtpClient())
             {
                 await client.ConnectAsync("smtp-relay.brevo.com", 587, false);
-                await client.AuthenticateAsync("nikitarabcev69@gmail.com", "xsmtpsib-3251fe9073f9997d37f6966c4f816f5046f0c89899c2313c604700280c60b7e7-afKj2vkQy3NXU8tS");
+                await client.AuthenticateAsync("nikitarabcev69@gmail.com", "hrbXDGRkfdc91Lzx");
                 await client.SendAsync(emailMessage);
 
                 await client.DisconnectAsync(true);
